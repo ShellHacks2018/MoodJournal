@@ -1,0 +1,27 @@
+{
+  "name": "moodjournal",
+  "version": "0.1.0",
+  "description": "An application where users can log in their mood on a daily basis.",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShellHacks2018/MoodJournal.git"
+  },
+  "author": "[Mauricio Santos-Hoyos] [Cristian Cepeda] [Steve Patterson]",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ShellHacks2018/MoodJournal/issues"
+  },
+  "homepage": "https://github.com/ShellHacks2018/MoodJournal#readme",
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-scripts": "1.1.4"
+  }
+}

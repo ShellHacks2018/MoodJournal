@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CrisComponent from './Components/CrisComponent.js';
+import MauricioComponent from './Components/MauricioComponent.js';
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
           <h1 className="App-title">The Mood Journal</h1>
         </header>
         <CrisComponent />
+        <MauricioComponent />
       </div>
     );
   }

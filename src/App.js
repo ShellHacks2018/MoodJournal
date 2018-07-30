@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import CrisComponent from './Components/CrisComponent.js';
 import MauricioComponent from './Components/MauricioComponent.js';
+import AmyComponent from './Components/AmyComponent.js';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         </header>
         <CrisComponent />
         <MauricioComponent />
+        <AmyComponent />
       </div>
     );
   }

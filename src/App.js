@@ -4,6 +4,19 @@ import './App.css';
 import EmojiComponent from './Components/Emoji/EmojiComponent.js';
 
 class App extends Component {
+
+  constructor(props){
+    super(props);
+    this.state ={
+      emotionClick: ""
+    }
+  }
+
+  updateEmotion = (emo) => {
+    console.log(emo);
+    this.setState({emotionClick:emo});
+  }
+
   render() {
     return (
       <div className="App">
@@ -15,7 +28,7 @@ class App extends Component {
         <div className="container">
           <div className="row my-5">
             <div class="col-sm">
-              <EmojiComponent emotion="Happy"/>
+              <EmojiComponent emotion="Happy" update={()=>this.updateEmotion()}/>
             </div>
             <div className="col-sm">
               <EmojiComponent emotion="sad"/>
@@ -32,7 +45,7 @@ class App extends Component {
         <div className = "container">
           <div className="row my-5 d-flex align-item-center">
             <div class="col-lg">
-              <EmojiComponent />
+              <EmojiComponent emotion={this.state.emotionClick}/>
             </div>
           </div>
 

@@ -12,16 +12,15 @@ export default class EmojiComponent extends Component {
         
     }
 
-    updateEmotion = (event) => {
-        console.log("Clicked!");
-        this.setState({emotion:"sad"});
+    componentDidMount(){
+        this.setState({emotion:this.props.emotion});
     }
        
     
     render() {
         return(
             <div>
-                <button style={{width:150}} type="button" className="btn btn-primary" onClick={this.updateEmotion}>{this.props.emotion}</button>
+                <button style={{width:150}} type="button" className="btn btn-primary" onClick={this.props.update(this.state.emotion)}>{this.state.emotion}</button>
             </div>
         );
     }

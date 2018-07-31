@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/ShellHacks2018/MoodJournal#readme",
   "dependencies": {
+    "bootstrap": "^4.1.3",
     "react": "^16.4.1",
+    "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4"
   }

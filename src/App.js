@@ -30,16 +30,16 @@ class App extends Component {
         <div className="container">
           <div className="row my-5">
             <div class="col-sm">
-              <EmojiComponent emotion="Happy"/>
+              <EmojiComponent emotion="Happy" onClick={(e)=>this.update(e,"Happy")} />
             </div>
             <div className="col-sm">
-              <EmojiComponent emotion="sad"/>
+              <EmojiComponent emotion="sad" onClick={(e)=>this.update(e,"Sad")} />
             </div>
             <div className="col-sm">
-              <EmojiComponent emotion="angry"/>
+              <EmojiComponent emotion="angry" onClick={(e)=>this.update(e,"Angry")} />
             </div>
-            <div className="col-sm">
-              <EmojiComponent emotion="neutral" onClick={(e)=>this.update(e,this.props.emotion)}/>
+            <div className="col-sm">              
+              <EmojiComponent emotion="neutral" onClick={(e)=>this.update(e,"Neutral")}/>
             </div>
           </div>
         </div>

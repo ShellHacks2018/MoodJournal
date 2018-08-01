@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import EmojiComponent from '../Emoji/EmojiComponent.js';
 
+
 export default class SelectionPageComp extends Component {
 
   constructor(props){
@@ -37,7 +38,8 @@ export default class SelectionPageComp extends Component {
         <div className = "container">
           <div className="row my-5 d-flex align-item-center">
             <div class="col-lg">
-              <EmojiComponent emotion={this.state.currentEmotion}/>
+              <EmojiComponent 
+                emotion={this.state.currentEmotion} />
             </div>
           </div>
         </div>

@@ -8,13 +8,15 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state ={
-      emotionClick: ""
+      a: ""
     }
+    //this.update = this.update.bind(this);
   }
 
-  updateEmotion = (emo) => {
-    console.log(emo);
-    this.setState({emotionClick:emo});
+
+  update = (e,emo)=>{
+      this.setState({a: String(emo)});
+      console.log("Clicked!");
   }
 
   render() {
@@ -28,7 +30,7 @@ class App extends Component {
         <div className="container">
           <div className="row my-5">
             <div class="col-sm">
-              <EmojiComponent emotion="Happy" update={()=>this.updateEmotion()}/>
+              <EmojiComponent emotion="Happy"/>
             </div>
             <div className="col-sm">
               <EmojiComponent emotion="sad"/>
@@ -37,7 +39,7 @@ class App extends Component {
               <EmojiComponent emotion="angry"/>
             </div>
             <div className="col-sm">
-              <EmojiComponent emotion="neutral"/>
+              <EmojiComponent emotion="neutral" onClick={(e)=>this.update(e,this.props.emotion)}/>
             </div>
           </div>
         </div>
@@ -45,7 +47,7 @@ class App extends Component {
         <div className = "container">
           <div className="row my-5 d-flex align-item-center">
             <div class="col-lg">
-              <EmojiComponent emotion={this.state.emotionClick}/>
+              <EmojiComponent emotion={this.state.a}/>
             </div>
           </div>
 

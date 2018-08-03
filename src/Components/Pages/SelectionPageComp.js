@@ -20,6 +20,11 @@ export default class SelectionPageComp extends Component {
       <div className="container">
         <div className="container">
           <div className="row my-5">
+            <div className="col-lg">
+              <h3>Select your Mood</h3>
+            </div>
+          </div>
+          <div className="row my-5">
             <div class="col-sm">
               <EmojiComponent alt="Very Happy" emotion="VeryHappy" onClick={(e)=>this.update(e,"VeryHappy")} />
             </div>

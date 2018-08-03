@@ -54,6 +54,11 @@ export default class SelectionPageComp extends Component {
                 size = {100} />
             </div>
           </div>
+          <div className="row my-5 d-flex align-item-center">
+            <div class="col-lg">
+              <button type="button" class="btn btn-primary">Set Mood</button>
+            </div>
+          </div>
         </div>
       </div>
     );

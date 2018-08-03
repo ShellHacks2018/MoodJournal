@@ -9,7 +9,7 @@ export default class NavbarComponent extends Component {
     render() {
         return (
           <div>            
-            <nav class="navbar navbar-light bg-light">
+            <nav class="navbar navbar-dark bg-dark">
               <Link class="navbar-brand" to="/calendar">MoodJournal</Link>              
               <ul class="nav justify-content-center">
                 <li class="nav-item">                  

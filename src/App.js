@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import NavbarComponent from './Components/Navbar/NavbarComponent.js';
-import CalendarPageComp from './Components/Pages/CalendarPageComp.js';
-import SelectionPageComp from './Components/Pages/SelectionPageComp.js';
+import NavbarComponent from './Components/NavbarComponent.js';
+import CalendarPageComp from './Pages/CalendarPageComp.js';
+import SelectionPageComp from './Pages/SelectionPageComp.js';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import './styles/App.css';

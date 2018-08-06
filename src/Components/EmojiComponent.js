@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //import { FaSmile, FaMeh, FaFrown,  } from '../../../node_modules/react-icons/fa';
-import '../../../node_modules/emoji-mart/css/emoji-mart.css'
+import '../../node_modules/emoji-mart/css/emoji-mart.css'
 import { Emoji } from 'emoji-mart'
 
 

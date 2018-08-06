@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EmojiComponent from '../Emoji/EmojiComponent.js';
+import EmojiComponent from '../Components/EmojiComponent.js';
 
 
 export default class SelectionPageComp extends Component {

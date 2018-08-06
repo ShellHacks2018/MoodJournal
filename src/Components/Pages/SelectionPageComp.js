@@ -25,7 +25,7 @@ export default class SelectionPageComp extends Component {
             </div>
           </div>
           <div className="row my-5">
-            <div class="col-sm">
+            <div className="col-sm">
               <EmojiComponent alt="Very Happy" emotion="VeryHappy" onClick={(e)=>this.update(e,"VeryHappy")} />
             </div>
             <div className="col-sm">
@@ -48,15 +48,15 @@ export default class SelectionPageComp extends Component {
 
         <div className = "container">
           <div className="row my-5 d-flex align-item-center">
-            <div class="col-lg">
+            <div className="col-lg">
               <EmojiComponent 
                 emotion={this.state.currentEmotion}
                 size = {100} />
             </div>
           </div>
           <div className="row my-5 d-flex align-item-center">
-            <div class="col-lg">
-              <button type="button" class="btn btn-primary">Set Mood</button>
+            <div className="col-lg">
+              <button type="button" className="btn btn-primary">Set Mood</button>
             </div>
           </div>
         </div>

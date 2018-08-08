@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import NavbarComponent from './Components/NavbarComponent.js';
 import CalendarPageComp from './Pages/CalendarPageComp.js';
 import SelectionPageComp from './Pages/SelectionPageComp.js';
+import LandingPageComp from './Pages/LandingPageComp.js';
 import PageNotFoundComp from './Pages/PageNotFoundComp.js';
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
@@ -16,7 +17,8 @@ class App extends Component {
         <div className="App">
           <NavbarComponent/>  
             <Switch> 
-              <Route exact path="/" component={CalendarPageComp}/>
+              <Route exact path="/" component={LandingPageComp}/>
+              <Route path="/welcome" component={LandingPageComp}/>
               <Route path="/calendar" component={CalendarPageComp}/>
               <Route path="/selection" component={SelectionPageComp}/>
               <Route component={PageNotFoundComp} />

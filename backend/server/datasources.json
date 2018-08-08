@@ -1,0 +1,20 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "users": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "users",
+    "name": "users",
+    "connector": "mongodb"
+  },
+  "emotions": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "emotions",
+    "name": "emotions",
+    "connector": "mongodb"
+  }
+}

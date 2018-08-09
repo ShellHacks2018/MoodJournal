@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import $ from 'jquery'; 
 
 
 export default class LandingPageComp extends Component{
@@ -16,15 +17,18 @@ export default class LandingPageComp extends Component{
     this.setState({password: event.target.value});
   }
 
-  handleEmailChange = (event) => {
-    this.setState({email: event.target.value});
-  }
-
   handleSubmit = (event) => {
-    let msg = 'Email: ' + this.state.email;
-    msg += '\nPassword: ' + this.state.passowrd;
-    alert(msg);
-    event.preventDefault();
+    let data = {
+      "username":this.state.email,
+      "email": this.state.email,
+      "password": this.state.password
+    };
+
+    let url = "http://localhost:3001/api/Users";
+    
+    $.post(url, data).done( (response) => {
+      console.log(response);
+    })
   }
 
   render(){
@@ -34,21 +38,21 @@ export default class LandingPageComp extends Component{
 
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
-              <label for="exampleInputEmail1">Email address</label>
+              <label>Email address</label>
               <input type="email" className="form-control" 
                   value={this.state.email} onChange={this.handleEmailChange} 
                   aria-describedby="emailHelp" placeholder="Enter email"/>
               <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
             <div className="form-group">
-              <label for="exampleInputPassword1">Password</label>
+              <label>Password</label>
               <input type="password" className="form-control" 
                   value={this.state.password} onChange={this.handlePasswordChange} 
                   placeholder="Password"/>
             </div>
             <div className="form-group form-check">
               <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-              <label className="form-check-label" for="exampleCheck1">Check me out</label>
+              <label className="form-check-label">Check me out</label>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
           </form>

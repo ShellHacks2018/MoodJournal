@@ -10,15 +10,25 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import './styles/App.css';
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      auth: false
+    }
+  }
+
+  updateAuth = (auth) => {
+    this.setState({auth: auth});
+  }
 
   render() {
     return (
       <BrowserRouter>
         <div className="App">
-          <NavbarComponent/>  
-            <Switch> 
-              <Route exact path="/" component={LandingPageComp}/>
-              <Route path="/welcome" component={LandingPageComp}/>
+          <NavbarComponent currentAuth={this.state.auth} authUpdate = {this.updateAuth} />
+            <Switch>
+              <Route exact path="/" render={props => <LandingPageComp auth = {this.updateAuth} />} />
+              <Route path="/welcome" render={props => <LandingPageComp auth = {this.updateAuth} />} />
               <Route path="/calendar" component={CalendarPageComp}/>
               <Route path="/selection" component={SelectionPageComp}/>
               <Route component={PageNotFoundComp} />

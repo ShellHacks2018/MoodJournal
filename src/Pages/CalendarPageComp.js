@@ -26,7 +26,6 @@ const data = [
 ]
 
 
-
 export default class CalendarPageComp extends Component {
   state = {
       events: data

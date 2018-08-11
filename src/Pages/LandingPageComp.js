@@ -12,6 +12,10 @@ export default class LandingPageComp extends Component{
                   redirect: false};
   }
 
+  // componentDidMount() {
+  //   this.props.auth(false);
+  // }
+
   handleEmailChange = (event) => {
     this.setState({email: event.target.value});
   }
@@ -47,8 +51,9 @@ export default class LandingPageComp extends Component{
       localStorage.setItem("token", response.id);
       localStorage.setItem("user", this.state.email);
       localStorage.setItem("userId", response.userId);
-      localStorage.setItem("auth", true);
+      // localStorage.setItem("auth", true);
 
+      this.props.auth(true);
       this.setState({redirect: true});
     })
   }
@@ -78,9 +83,7 @@ export default class LandingPageComp extends Component{
                 <label className="form-check-label">Check me out</label>
               </div>
               <button type="submit" className="btn btn-primary">Register</button>
-              
             </form>
-
             <button className="btn btn-primary" onClick={this.loginHandler}>Login</button>
 
           </div>

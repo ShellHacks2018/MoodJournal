@@ -6,7 +6,7 @@ export default class SelectionPageComp extends Component {
 
   constructor(props){
     super(props);
-    this.state ={
+    this.state = {
       currentEmotion: "Choose a Mood"
     }
   }

@@ -3,16 +3,13 @@ import React, { Component } from 'react';
 import '../../node_modules/emoji-mart/css/emoji-mart.css'
 import { Emoji } from 'emoji-mart'
 
-
 export default class EmojiComponent extends Component {
     constructor(props){
         super(props);
         this.state ={
             emotion: ""
-            //emoji: ""
         }  
         this.emoji = "" ;
-        //this.updateEmoji();
     }
 
     //@todo: Add function to set icon based on passed in emotion
@@ -46,30 +43,29 @@ export default class EmojiComponent extends Component {
           default:            
             this.emoji = "question";
             break;
-        
         }
     }
 
-
-
-
     render() {
       this.updateEmoji();
-      return(
-        <div>
-          <button style={{width:150}} 
-            type="button" className="btn bg-transparent"
-            onClick={this.props.onClick}>
-              {/*{this.props.emotion} */}
-              <Emoji emoji={{ id: this.emoji, skin: 3}} size={this.props.size} native="true"/>
-              
-          </button>
-        </div>
-        );
+      return( <EmojiView 
+        emoji={this.emoji} 
+        size={this.props.size}
+        onClick={this.props.onClick}
+        /> );
       }
-
 }
 
 EmojiComponent.defaultProps = {
   size: 60
 };
+
+const EmojiView = (props) => {
+  return(<div>
+    <button style={{width:150}} 
+      type="button" className="btn bg-transparent"
+      onClick={props.onClick}>
+        <Emoji emoji={{ id: props.emoji, skin: 3}} size={props.size} native={false}/>
+    </button>
+  </div>);
+}

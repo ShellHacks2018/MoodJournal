@@ -20,17 +20,14 @@ export default class SelectionPageComp extends Component {
 
   postEmotion = (event)=>{
     let data = {
-      "date": "2018-08-03T15:36:27.906Z",
+      "date": new Date(),
       "emotion":this.state.currentEmotion,
       "userId": localStorage.getItem("userId"), 
     }
 
     let url = "http://localhost:3001/api/emotions?access_token="+localStorage.getItem("token")
 
-    console.log(data);
-
     $.post(url, data).done ((response)=>{ 
-      console.log(response)  
       this.setState({redirect:true});
     }).fail((err)=> {console.log(err);})
     

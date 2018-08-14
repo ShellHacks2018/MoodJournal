@@ -78,15 +78,11 @@ export default class LandingPageComp extends Component{
                     value={this.state.password} onChange={this.handlePasswordChange} 
                     placeholder="Password"/>
               </div>
-              <div className="form-group form-check">
-                <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-                <label className="form-check-label">Check me out</label>
-              </div>
               <button type="submit" className="btn btn-primary">Register</button>
+              
             </form>
-            <button className="btn btn-primary" onClick={this.loginHandler}>Login</button>
-
           </div>
+          <button className="mx-2 btn btn-primary" onClick={this.loginHandler}>Login</button>
         </div>
       );
     }

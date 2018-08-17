@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import { Redirect } from 'react-router-dom';
+import LandingForm from '../Components/LandingForm';
 
 import $ from 'jquery'; 
 
 
-export default class LandingPageComp extends Component{
+export default class LandingPageContainer extends Component{
   constructor(props) {
     super(props);
     this.state = {email: '',
@@ -12,11 +13,7 @@ export default class LandingPageComp extends Component{
                   redirect: false};
   }
 
-  // componentDidMount() {
-  //   this.props.auth(false);
-  // }
-
-  handleEmailChange = (event) => {
+  handleEmailFunction = (event) => {
     this.setState({email: event.target.value});
   }
 
@@ -61,30 +58,14 @@ export default class LandingPageComp extends Component{
   render(){
     if (this.state.redirect) { return <Redirect to='/calendar' /> }
     else{ return(
-        <div className="container my-5">
-          <div className="row align-self-center d-flex base justify-content-center">
-
-            <form onSubmit={this.handleSubmit}>
-              <div className="form-group">
-                <label>Email address</label>
-                <input type="email" className="form-control" 
-                    value={this.state.email} onChange={this.handleEmailChange} 
-                    aria-describedby="emailHelp" placeholder="Enter email"/>
-                <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
-              <div className="form-group">
-                <label>Password</label>
-                <input type="password" className="form-control" 
-                    value={this.state.password} onChange={this.handlePasswordChange} 
-                    placeholder="Password"/>
-              </div>
-              <button type="submit" className="btn btn-primary">Register</button>
-              
-            </form>
-          </div>
-          <button className="mx-2 btn btn-primary" onClick={this.loginHandler}>Login</button>
-        </div>
+        <LandingForm email={this.state.email} 
+                     password={this.state.password} 
+                     handleEmailChange={this.handleEmailFunction}
+                     handlePasswordChange={this.handlePasswordChange}
+                     handleSubmit={this.handleSubmit}
+                     loginHandler={this.loginHandler}/>
       );
     }
   }
-}
+} 
+

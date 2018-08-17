@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import NavbarView from './NavbarView';
+import PropTypes from 'prop-types';
 
 export default class NavbarComponent extends Component {
   constructor(props){
@@ -12,43 +13,22 @@ export default class NavbarComponent extends Component {
   logoff = () => {
     localStorage.clear();
     this.props.authUpdate(false);
-    this.setState({redirect: true});
+    this.setState({redirect: true}); // Not passed, just used to force re-render
   }
 
   render() {
     if(this.props.currentAuth){
-      return(
-      <div>            
-        <nav className="navbar navbar-dark bg-dark">
-          <Link className="navbar-brand" to="/">MoodJournal</Link>              
-          <ul className="nav justify-content-center">
-            <li className="nav-item">                  
-              <Link className="nav-link active" to="/calendar">Calendar</Link>
-            </li>
-            <li className="nav-item">                
-              <Link className="nav-link" to="/selection">Mood Selection</Link>
-            </li>    
-            <li className="nav-item">                
-              <button className="btn btn-danger" onClick={this.logoff}>Logoff</button>
-            </li>             
-          </ul>                           
-        </nav>
-      </div>);
+      return(<NavbarView currentAuth={true} logoff={this.logoff}/>);
     }
     else{
-      return (
-        <div>            
-          <nav className="navbar navbar-dark bg-dark">
-            <Link className="navbar-brand" to="/">MoodJournal</Link>                             
-          </nav>
-          <Redirect to='/' />
-        </div>
-        
-      );
+      return(<NavbarView currentAuth={false}/>);
     }
   
   }
 }
 
-
+NavbarComponent.propTypes = {
+  currentAuth: PropTypes.bool,
+  authUpdate: PropTypes.func
+};
 

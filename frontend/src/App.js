@@ -22,6 +22,7 @@ class App extends Component {
   }
 
   render() {
+    // This is made intentionally to conflict!
     return (
       <BrowserRouter>
         <div className="App">

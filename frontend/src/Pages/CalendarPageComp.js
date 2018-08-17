@@ -1,12 +1,8 @@
 import React, {Component} from 'react';
-import Calendar from "react-big-calendar";
-import moment from "moment";
 import EmojiComponent from "../Components/EmojiComponent.js";
 import $ from 'jquery';
-
-import "react-big-calendar/lib/css/react-big-calendar.css";
-
-Calendar.setLocalizer(Calendar.momentLocalizer(moment));
+import CalendarPageView from './CalendarPageView.js';
+import PropTypes from 'prop-types';
 
 
 export default class CalendarPageComp extends Component {
@@ -32,19 +28,14 @@ export default class CalendarPageComp extends Component {
   }
 
   render() {
-      return (
-        <div className="my-5 container">
-          <div className="row justify-content-center">
-            <div className="col-lg align-center" align="center">
-            <Calendar 
-              defaultDate={new Date()}
-              defaultView="month"
-              events={this.state.events}
-              style={{ height: "80vh" }}/>
-            </div>
-          </div>
-        </div>  
-      );
+    return ( <CalendarPageView 
+              events={this.state.events} 
+              event_height="80vh"/> );
   }
+}
 
+CalendarPageView.propTypes = {
+  update: PropTypes.func,
+  currentEmotion: PropTypes.string,
+  postEmotion: PropTypes.func
 }

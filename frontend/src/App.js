@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import NavbarComponent from './Components/NavbarComponent.js';
 import CalendarPageComp from './Pages/CalendarPageComp.js';
 import SelectionPageComp from './Pages/SelectionPageComp.js';
-import LandingPageComp from './Pages/LandingPageComp.js';
+import LandingPageContainer from './Pages/LandingPageContainer.js';
 import PageNotFoundComp from './Pages/PageNotFoundComp.js';
 
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
@@ -28,8 +28,8 @@ class App extends Component {
         <div className="App">
           <NavbarComponent currentAuth={this.state.auth} authUpdate = {this.updateAuth} />
             <Switch>
-              <Route exact path="/" render={props => <LandingPageComp auth = {this.updateAuth} />} />
-              <Route path="/welcome" render={props => <LandingPageComp auth = {this.updateAuth} />} />
+              <Route exact path="/" render={props => <LandingPageContainer auth = {this.updateAuth} />} />
+              <Route path="/welcome" render={props => <LandingPageContainer auth = {this.updateAuth} />} />
               <Route path="/calendar" component={CalendarPageComp}/>
               <Route path="/selection" component={SelectionPageComp}/>
               <Route component={PageNotFoundComp} />

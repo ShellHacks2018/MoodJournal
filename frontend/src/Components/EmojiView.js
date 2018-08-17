@@ -42,14 +42,29 @@ export default class EmojiView extends Component {
 
   render(){
     this.updateEmoji();
-    return(
-    <div>
-      <button style={{width:150}} 
-        type="button" className="btn bg-transparent"
-        onClick={this.props.onClick}>
-          <Emoji emoji={{ id: this.emo, skin: 3}} size={this.props.size} native={false}/>
-      </button>
-    </div>);
+    // TODO: will do some logic to distinguish between 
+    if(this.props.forDisplay) {
+      return(
+        <div>
+          <button style={{width:150}} 
+            type="button" className="btn bg-transparent"
+            onClick={this.props.onClick}>
+              <Emoji emoji={{ id: this.emo, skin: 3}} size={this.props.size} native={false}/>
+          </button>
+        </div>);
+    }
+    else{
+      return(
+        <div>
+          <button style={{width:150}} 
+            type="button" className="btn bg-transparent"
+            onClick={this.props.onClick}>
+              <Emoji emoji={{ id: this.props.emotion, skin: 3}} size={this.props.size} native={false}/>
+          </button>
+        </div>);
+
+    }
+    
   }
   
 }
@@ -57,6 +72,7 @@ export default class EmojiView extends Component {
   EmojiView.propTypes= {
     size: PropTypes.number,
     onClick: PropTypes.func,
-    emoPassed: PropTypes.string
+    emoPassed: PropTypes.string,
+    forDisplay: PropTypes.bool
   }
   

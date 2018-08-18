@@ -45,22 +45,22 @@ export default class SelectionPageComp extends Component {
             </div>
             <div className="row my-5">
               <div className="col-sm">
-                <EmojiComponent fordisplay={false} emotion="grin" onClick={(e)=>this.update(e,"grin")} />
+                <EmojiComponent emotion="grin" onClick={(e)=>this.update(e,"grin")} />
               </div>
               <div className="col-sm">
-                <EmojiComponent fordisplay={false} emotion="slightly_smiling_face" onClick={(e)=>this.update(e,"slightly_smiling_face")} />
+                <EmojiComponent emotion="slightly_smiling_face" onClick={(e)=>this.update(e,"slightly_smiling_face")} />
               </div>
               <div className="col-sm">
-                <EmojiComponent fordisplay={false} emotion="neutral_face" onClick={(e)=>this.update(e,"neutral_face")} />
+                <EmojiComponent emotion="neutral_face" onClick={(e)=>this.update(e,"neutral_face")} />
               </div>
               <div className="col-sm">              
-                <EmojiComponent fordisplay={false} emotion="slightly_frowning_face" onClick={(e)=>this.update(e,"slightly_frowning_face")}/>
+                <EmojiComponent emotion="slightly_frowning_face" onClick={(e)=>this.update(e,"slightly_frowning_face")}/>
               </div>
               <div className="col-sm">              
-                <EmojiComponent fordisplay={false} emotion="disappointed" onClick={(e)=>this.update(e,"disappointed")}/>
+                <EmojiComponent emotion="disappointed" onClick={(e)=>this.update(e,"disappointed")}/>
               </div>
               <div className="col-sm">              
-                <EmojiComponent fordisplay={false} emotion="rage" onClick={(e)=>this.update(e,"rage")}/>
+                <EmojiComponent emotion="rage" onClick={(e)=>this.update(e,"rage")}/>
               </div>
             </div>
           </div>
@@ -69,8 +69,7 @@ export default class SelectionPageComp extends Component {
             <div className="row my-5 d-flex align-item-center">
               <div className="col-lg">
                 <EmojiComponent 
-                  emotion={this.state.currentEmotion}
-                  fordisplay={true}
+                  emotion={this.state.currentEmotion}              
                   size = {100} />
               </div>
             </div>

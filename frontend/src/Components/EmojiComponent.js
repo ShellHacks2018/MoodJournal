@@ -17,8 +17,6 @@ export default class EmojiComponent extends Component {
       emotion = {this.props.emotion}
       size={this.props.size}
       onClick={this.props.onClick}
-      // forDisplay = {this.props.fordisplay}
-      // emoPassed = {this.state.emotion}
       /> );
     }
 }

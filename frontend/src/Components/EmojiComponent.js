@@ -11,14 +11,14 @@ export default class EmojiComponent extends Component {
         }         
     }
 
-    componentDidMount() {
-      this.setState({emotion: this.props.emotion});
-    }
+    // componentDidMount() {
+    //   this.setState({emotion: this.props.emotion});
+    // }
   
     render() {
       
       return( <EmojiView        
-        emotion = {this.state.emotion}
+        emotion = {this.props.emotion}
         size={this.props.size}
         onClick={this.props.onClick}
         // forDisplay = {this.props.fordisplay}

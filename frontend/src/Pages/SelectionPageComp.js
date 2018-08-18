@@ -69,7 +69,7 @@ export default class SelectionPageComp extends Component {
             <div className="row my-5 d-flex align-item-center">
               <div className="col-lg">
                 <EmojiComponent 
-                  emoPassed={this.state.currentEmotion}
+                  emotion={this.state.currentEmotion}
                   fordisplay={true}
                   size = {100} />
               </div>

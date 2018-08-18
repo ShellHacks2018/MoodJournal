@@ -12,8 +12,8 @@ export default class EmojiView extends Component {
   // neutral==neutral_face, sad==slightly_frowning_face, 
   // very sad==disappointed, angry==rage
   updateEmoji = () => {
-      console.log("Invoked");
-      if(this.props.emotion === ""){
+      // console.log("Invoked");
+      if(this.props.emotion === "Choose a Mood"){
         this.emo = "question";
       }
       // else if(this.props.forDisplay)

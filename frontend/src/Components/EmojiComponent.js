@@ -8,27 +8,31 @@ export default class EmojiComponent extends Component {
         super(props);
         this.state ={
             emotion: ""
-        }  
-        // this.emoji = "" ;
+        }         
     }
 
+    componentDidMount() {
+      this.setState({emotion: this.props.emotion});
+    }
   
     render() {
-      // this.updateEmoji();
+      
       return( <EmojiView        
+        emotion = {this.state.emotion}
         size={this.props.size}
         onClick={this.props.onClick}
-        emoPassed = {this.state.emotion}
+        // forDisplay = {this.props.fordisplay}
+        // emoPassed = {this.state.emotion}
         /> );
       }
 }
 
 EmojiComponent.propTypes={
   emotion: PropTypes.string,
-  alt: PropTypes.string,
   onClick: PropTypes.func,
   size: PropTypes.number,
-  emojiPassed: PropTypes.string
+  emojiPassed: PropTypes.string,
+  fordisplay: PropTypes.bool
 };
 
 

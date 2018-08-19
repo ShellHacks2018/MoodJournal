@@ -56,7 +56,7 @@ export default class LandingPageContainer extends Component{
   }
 
   render(){
-    if (this.state.redirect) { return <Redirect to='/calendar' /> }
+    if (this.state.redirect) { return <Redirect to='/selection' /> }
     else{ return(
         <LandingForm email={this.state.email} 
                      password={this.state.password} 

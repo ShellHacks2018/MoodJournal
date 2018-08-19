@@ -34,9 +34,13 @@ export default class SelectionPageComp extends Component {
 
   render() {
     if(this.state.redirect) {return <Redirect to='/calendar'/>}
-    else{return ( <SelectionPageView 
-                      update={this.update} 
-                      currentEmotion={this.state.currentEmotion} 
-                      postEmotion={this.postEmotion}/> ); }
+    else{return (
+        <SelectionPageView 
+          update={this.update}
+          currentEmotion={this.state.currentEmotion}
+          postEmotion={this.postEmotion}/>
+      );
+      
+    }
   }
 }

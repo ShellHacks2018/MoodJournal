@@ -13,22 +13,22 @@ const SelectionPageView = (props) => {
         </div>
         <div className="row my-5">
           <div className="col-sm">
-            <EmojiComponent alt="Very Happy" emotion="VeryHappy" onClick={(e)=>props.update(e,"VeryHappy")} />
+            <EmojiComponent emotion="grin" onClick={(e)=>props.update(e,"grin")} />
           </div>
           <div className="col-sm">
-            <EmojiComponent alt="Happy" emotion="Happy" onClick={(e)=>props.update(e,"Happy")} />
+            <EmojiComponent emotion="slightly_smiling_face" onClick={(e)=>props.update(e,"slightly_smiling_face")} />
           </div>
           <div className="col-sm">
-            <EmojiComponent alt="Neutral" emotion="Neutral" onClick={(e)=>props.update(e,"Neutral")} />
+            <EmojiComponent emotion="neutral_face" onClick={(e)=>props.update(e,"neutral_face")} />
           </div>
           <div className="col-sm">              
-            <EmojiComponent alt="Sad" emotion="Sad" onClick={(e)=>props.update(e,"Sad")}/>
+            <EmojiComponent emotion="slightly_frowning_face" onClick={(e)=>props.update(e,"slightly_frowning_face")}/>
           </div>
           <div className="col-sm">              
-            <EmojiComponent alt="Very Sad" emotion="VerySad" onClick={(e)=>props.update(e,"VerySad")}/>
+            <EmojiComponent emotion="disappointed" onClick={(e)=>props.update(e,"disappointed")}/>
           </div>
           <div className="col-sm">              
-            <EmojiComponent alt="Angry" emotion="Angry" onClick={(e)=>props.update(e,"Angry")}/>
+            <EmojiComponent emotion="rage" onClick={(e)=>props.update(e,"rage")}/>
           </div>
         </div>
       </div>

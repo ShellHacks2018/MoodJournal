@@ -8,7 +8,7 @@ const initState = {
 // by redux to handle dispathched actions to mutate the 
 // central store.
 const reducer = (state=initState, action) => {
-  // Handle the AUTH_OK action, dispatched by App
+  // Handle the AUTH_ACTION, dispatched by App > Navbar
   if(action.type === 'AUTH_ACTION'){
     return { ...state, auth: action.val }
   }

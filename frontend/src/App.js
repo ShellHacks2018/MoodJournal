@@ -23,11 +23,10 @@ class App extends Component {
   // }
 
   render() {
-    // This is made intentionally to conflict!
     return (
       <BrowserRouter>
         <div className="App">
-          <NavbarComponent currentAuth={ this.props.auth} updateAuth={this.props.updateAuth} />
+          <NavbarComponent currentAuth={this.props.auth} updateAuth={this.props.updateAuth} />
             <Switch>
               <Route exact path="/" render={props => <LandingPageContainer auth = {this.props.updateAuth} />} />
               <Route path="/welcome" render={props => <LandingPageContainer auth = {this.props.updateAuth} />} />
@@ -46,8 +45,8 @@ class App extends Component {
 const mapStateToProps = (state) => { return {auth: state.auth}; };
 
 // Setup dispatching capabilities for this component
-// so it may execute actions that will update state
-// by dispatching actions
+// so it may execute actions that will update state. 
+// Available in the component via this.props
 const mapDispatchToProps = (dispatch) => { 
   return {
     updateAuth: (val) => { dispatch({type: 'AUTH_ACTION', val: val}) }

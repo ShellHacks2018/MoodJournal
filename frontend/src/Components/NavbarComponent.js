@@ -28,7 +28,7 @@ export default class NavbarComponent extends Component {
 }
 
 NavbarComponent.propTypes = {
-  currentAuth: PropTypes.bool,
-  authUpdate: PropTypes.func
+  currentAuth: PropTypes.bool, // redux managed state.auth
+  authUpdate: PropTypes.func   // dispatch function to update state.auth
 };
 

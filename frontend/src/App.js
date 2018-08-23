@@ -28,8 +28,8 @@ class App extends Component {
         <div className="App">
           <NavbarComponent currentAuth={this.props.auth} updateAuth={this.props.updateAuth} />
             <Switch>
-              <Route exact path="/" render={props => <LandingPageContainer auth = {this.props.updateAuth} />} />
-              <Route path="/welcome" render={props => <LandingPageContainer auth = {this.props.updateAuth} />} />
+              <Route exact path="/" render={props => <LandingPageContainer updateAuth = {this.props.updateAuth} />} />
+              <Route path="/welcome" render={props => <LandingPageContainer updateAuth = {this.props.updateAuth} />} />
               <Route path="/calendar" component={CalendarPageComp}/>
               <Route path="/selection" component={SelectionPageComp}/>
               <Route component={PageNotFoundComp} />

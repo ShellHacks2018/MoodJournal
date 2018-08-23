@@ -1,7 +1,8 @@
 
 // Setup desired initial state
 const initState = {
-  auth: false
+  auth: false,
+  events: []
 }
 
 // Create the main reducer function that will be used
@@ -9,12 +10,24 @@ const initState = {
 // central store.
 const reducer = (state=initState, action) => {
   // Handle the AUTH_ACTION, dispatched by App > Navbar
-  if(action.type === 'AUTH_ACTION'){
-    return { ...state, auth: action.val }
+
+  switch(action.type){
+    case "AUTH_ACTION":
+      return { ...state, auth: action.val }
+    case "GET_EMOTION":
+      console.log("Action.val: "+ action.val);
+      return { ...state, events: action.val}
+    default:
+      return state;
   }
-  else{
-    return state;
-  }
+
+
+  // if(action.type === 'AUTH_ACTION'){
+  //   return { ...state, auth: action.val }
+  // }
+  // else{
+  //   return state;
+  // }
 }
 
 export default reducer;

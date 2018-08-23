@@ -50,7 +50,7 @@ export default class LandingPageContainer extends Component{
       localStorage.setItem("userId", response.userId);
       // localStorage.setItem("auth", true);
 
-      this.props.auth(true);
+      this.props.updateAuth(true);
       this.setState({redirect: true});
     })
   }

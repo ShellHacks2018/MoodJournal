@@ -2,7 +2,10 @@
 // Setup desired initial state
 const initState = {
   auth: false,
-  events: []
+  events: [],
+  email: '',
+  password: ''
+  
 }
 
 // Create the main reducer function that will be used
@@ -15,8 +18,12 @@ const reducer = (state=initState, action) => {
     case "AUTH_ACTION":
       return { ...state, auth: action.val }
     case "GET_EMOTION":
-      console.log("Action.val: "+ action.val);
+      // console.log("Action.val: "+ action.val);
       return { ...state, events: action.val}
+    case "GET_EMAIL":
+      return { ...state, email: action.val}
+    case "GET_PASSWORD":
+      return { ...state, password: action.val}
     default:
       return state;
   }

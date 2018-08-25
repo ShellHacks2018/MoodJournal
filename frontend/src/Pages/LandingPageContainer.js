@@ -1,31 +1,25 @@
 import React, {Component} from 'react';
 import { Redirect } from 'react-router-dom';
 import LandingForm from '../Components/LandingForm';
-
+import {connect} from 'react-redux';
 import $ from 'jquery'; 
 
 
-export default class LandingPageContainer extends Component{
-  constructor(props) {
-    super(props);
-    this.state = {email: '',
-                  password: '',
-                  redirect: false};
-  }
+class LandingPageContainer extends Component{
 
   handleEmailFunction = (event) => {
-    this.setState({email: event.target.value});
+    this.props.updateEmail(event.target.value);
   }
 
   handlePasswordChange = (event) => {
-    this.setState({password: event.target.value});
+    this.props.updatePassword(event.target.value);
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = () => {
     let data = {
-      "username":this.state.email,
-      "email": this.state.email,
-      "password": this.state.password
+      "username":this.props.email,
+      "email": this.props.email,
+      "password": this.props.password
     };
 
     let url = "http://localhost:3001/api/Users";
@@ -35,10 +29,10 @@ export default class LandingPageContainer extends Component{
     }).fail((err) => {console.log(err); })
   }
 
-  loginHandler = (event) => {
+  loginHandler = () => {
     let data = {
-      "username":this.state.email,
-      "password": this.state.password
+      "username":this.props.email,
+      "password": this.props.password
     };
 
     let url = "http://localhost:3001/api/Users/login";
@@ -46,20 +40,20 @@ export default class LandingPageContainer extends Component{
     // Our front end, hitting the server
     $.post(url, data).done( (response) => {
       localStorage.setItem("token", response.id);
-      localStorage.setItem("user", this.state.email);
+      localStorage.setItem("user", this.props.email);
       localStorage.setItem("userId", response.userId);
       // localStorage.setItem("auth", true);
 
       this.props.updateAuth(true);
-      this.setState({redirect: true});
+      // this.setState({redirect: true});
     })
   }
 
   render(){
-    if (this.state.redirect) { return <Redirect to='/selection' /> }
+    if (this.props.redirect) { return <Redirect to='/selection' /> }
     else{ return(
-        <LandingForm email={this.state.email} 
-                     password={this.state.password} 
+        <LandingForm email={this.props.email} 
+                     password={this.props.password} 
                      handleEmailChange={this.handleEmailFunction}
                      handlePasswordChange={this.handlePasswordChange}
                      handleSubmit={this.handleSubmit}
@@ -69,3 +63,24 @@ export default class LandingPageContainer extends Component{
   }
 } 
 
+// Tell redux what part of state you want
+// made available inside this component via this.props
+const mapStateToProps = (state) => { return {
+    redirect: state.auth,
+    email: state.email,
+    password: state.password,
+  }; 
+};
+
+// Setup dispatching capabilities for this component
+// so it may execute actions that will update state. 
+// Available in the component via this.props
+const mapDispatchToProps = (dispatch) => { 
+  return {
+    updateEmail: (val) => { dispatch({type: 'GET_EMAIL', val: val}) },
+    updatePassword: (val) => { dispatch({type: 'GET_PASSWORD', val: val}) }
+  }; 
+};
+
+// Give this component access to the redux managed state
+export default connect(mapStateToProps, mapDispatchToProps)(LandingPageContainer);

@@ -50,7 +50,7 @@ class LandingPageContainer extends Component{
   }
 
   render(){
-    if (this.props.redirect) { return <Redirect to='/selection' /> }
+    if (this.props.auth) { return <Redirect to='/selection' /> }
     else{ return(
         <LandingForm email={this.props.email} 
                      password={this.props.password} 
@@ -66,9 +66,9 @@ class LandingPageContainer extends Component{
 // Tell redux what part of state you want
 // made available inside this component via this.props
 const mapStateToProps = (state) => { return {
-    redirect: state.auth,
-    email: state.email,
-    password: state.password,
+    auth: state.authReducer.auth,
+    email: state.lpr.email,
+    password: state.lpr.password
   }; 
 };
 

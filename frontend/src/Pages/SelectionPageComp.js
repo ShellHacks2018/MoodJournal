@@ -24,7 +24,7 @@ class SelectionPageComp extends Component {
     let data = {
       "date": new Date(),
       // "emotion":this.state.currentEmotion,
-      "emotion":this.props.curEmotion,
+      "emotion":this.props.currEmotion,
       "userId": localStorage.getItem("userId"), 
     }
 
@@ -32,13 +32,16 @@ class SelectionPageComp extends Component {
 
     $.post(url, data).done ((response)=>{ 
       // this.setState({redirect:true});
-      this.props.updateRedirect;
+      this.props.updateRedirect(true);
     }).fail((err)=> {console.log(err);})
   }
 
   render() {
     //this.state.redirect
-    if(this.props.redirect) {return <Redirect to='/calendar'/>}
+    if(this.props.redirect) {
+      this.props.updateRedirect(false);
+      return <Redirect to='/calendar'/>
+    }
     else{return (
         <SelectionPageView 
           update={this.update}
@@ -53,15 +56,15 @@ class SelectionPageComp extends Component {
 
 const mapStateToProps = state => {
   return {
-    currEmotion: state.currentEmotion,
-    redirect: state.redirect
+    currEmotion: state.emoReducer.currentEmotion,
+    redirect: state.emoReducer.redirect
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
     updateEmotion: (val) => dispatch({type: "UPDATE_EMOTION", val: val}),
-    updateRedirect: () => dispatch({type: "UPDATE_REDIRECT"})
+    updateRedirect: (val) => dispatch({type: "UPDATE_REDIRECT", val: val})
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(SelectionPageComp);

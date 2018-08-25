@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
 import authReducer from './AuthReducer'
 import getEmotionReducer from './GetEmotionReducer'
+import landingPageReducer from './LandingPageReducer'
+import emotionReducer from './EmotionReducer'
 
 // We could have each reducer inside a file that holds all the reducers and we
 // import them look at the example they have. But for simplicity lets define
@@ -11,7 +13,9 @@ import getEmotionReducer from './GetEmotionReducer'
 const reducer = combineReducers(
   {
     authReducer,
-    getEmo: getEmotionReducer
+    getEmo: getEmotionReducer,
+    lpr: landingPageReducer,
+    emoReducer: emotionReducer
   }
 )
 export default reducer

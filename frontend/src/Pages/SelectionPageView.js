@@ -24,8 +24,8 @@ const SelectionPageView = (props) => {
         <div className='row my-5'>
           {
             Data.map(data =>
-              <div className='col-sm'>
-                <EmojiComponent key={data.key} emotion={data.emotion} onClick={(e) => props.update(e, data.emotion)} />
+              <div className='col-sm' key={data.key}>
+                <EmojiComponent emotion={data.emotion} onClick={(e) => props.update(e, data.emotion)} />
               </div>
             )
           }

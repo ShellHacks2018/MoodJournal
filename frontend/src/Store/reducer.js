@@ -4,7 +4,9 @@ const initState = {
   auth: false,
   events: [],
   email: '',
-  password: ''
+  password: '',
+  currentEmotion,
+  redirect: false
   
 }
 
@@ -24,6 +26,14 @@ const reducer = (state=initState, action) => {
       return { ...state, email: action.val}
     case "GET_PASSWORD":
       return { ...state, password: action.val}
+    case "UPDATE_EMOTION":
+      return {
+        ...state, currentEmotion: action.val
+      }
+    case "UPDATE_REDIRECT":
+      return {
+        ...state, redirect: true
+      }
     default:
       return state;
   }

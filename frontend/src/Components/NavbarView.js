@@ -16,6 +16,9 @@ const NavbarView = (props) => {
               <Link className='nav-link' to='/selection'>Mood Selection</Link>
             </li>
             <li className='nav-item'>
+              <Link className='nav-link' to='/map'>Map</Link>
+            </li>
+            <li className='nav-item'>
               <button className='btn btn-danger' onClick={props.logoff}>Logoff</button>
             </li>
           </ul>

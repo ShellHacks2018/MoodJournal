@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import LandingForm from '../Components/LandingForm';
 import {connect} from 'react-redux';
 import $ from 'jquery'; 
+import AuthAction from '../Store/AuthAction';
 
 
 class LandingPageContainer extends Component{
@@ -35,18 +36,7 @@ class LandingPageContainer extends Component{
       "password": this.props.password
     };
 
-    let url = "http://localhost:3001/api/Users/login";
-
-    // Our front end, hitting the server
-    $.post(url, data).done( (response) => {
-      localStorage.setItem("token", response.id);
-      localStorage.setItem("user", this.props.email);
-      localStorage.setItem("userId", response.userId);
-      // localStorage.setItem("auth", true);
-
-      this.props.updateAuth(true);
-      // this.setState({redirect: true});
-    })
+    this.props.auth.login(data);
   }
 
   render(){
@@ -63,8 +53,6 @@ class LandingPageContainer extends Component{
   }
 } 
 
-// Tell redux what part of state you want
-// made available inside this component via this.props
 const mapStateToProps = (state) => { return {
     auth: state.authReducer.auth,
     email: state.lpr.email,
@@ -72,13 +60,11 @@ const mapStateToProps = (state) => { return {
   }; 
 };
 
-// Setup dispatching capabilities for this component
-// so it may execute actions that will update state. 
-// Available in the component via this.props
 const mapDispatchToProps = (dispatch) => { 
   return {
     updateEmail: (val) => { dispatch({type: 'GET_EMAIL', val: val}) },
-    updatePassword: (val) => { dispatch({type: 'GET_PASSWORD', val: val}) }
+    updatePassword: (val) => { dispatch({type: 'GET_PASSWORD', val: val}) },
+    auth: AuthAction(dispatch)
   }; 
 };
 

@@ -7,7 +7,7 @@ const AuthAction = (dispatch) => {
 
       $.post(url, data).done( (response) => {
         localStorage.setItem("token", response.id);
-        localStorage.setItem("user", this.props.email);
+        localStorage.setItem("user", data.username);
         localStorage.setItem("userId", response.userId);
         dispatch({type: 'LOGIN'}); 
         });

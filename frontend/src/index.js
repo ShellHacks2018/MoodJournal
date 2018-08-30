@@ -6,7 +6,8 @@ import registerServiceWorker from './registerServiceWorker'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk';
 import reducer from './Store/RootReducer.js'
 
 // Generate the central store for the entire app
@@ -14,6 +15,7 @@ import reducer from './Store/RootReducer.js'
 // and mutate state accordingly
 const store = createStore(
   reducer,
+  applyMiddleware(thunk),
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 console.log(store.getState())

@@ -36,12 +36,14 @@ class LandingPageContainer extends Component{
       "password": this.props.password
     };
 
-    this.props.auth.login(data);
+    this.props.authFn.login(data);
   }
 
   render(){
+    console.log(this.props.auth)
     if (this.props.auth) { return <Redirect to='/selection' /> }
-    else{ return(
+    else{ 
+      return(
         <LandingForm email={this.props.email} 
                      password={this.props.password} 
                      handleEmailChange={this.handleEmailFunction}
@@ -64,7 +66,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateEmail: (val) => { dispatch({type: 'GET_EMAIL', val: val}) },
     updatePassword: (val) => { dispatch({type: 'GET_PASSWORD', val: val}) },
-    auth: AuthAction(dispatch)
+    authFn: AuthAction(dispatch)
   }; 
 };
 

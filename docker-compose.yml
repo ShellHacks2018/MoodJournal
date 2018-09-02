@@ -3,7 +3,7 @@ version: '3'
 services:
   moodjournal_api:
     container_name: backend
-    build: ./MoodJournal/backend
+    build: ./backend
     working_dir: /opt/backend
     command: npm start
     ports:
@@ -13,7 +13,7 @@ services:
 
   moodjournal:
     container_name: frontend
-    build: ./MoodJournal/frontend
+    build: ./frontend
     working_dir: /opt/frontend
     command: npm start
     ports:

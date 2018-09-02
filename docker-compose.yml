@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  moodjournal_api:
+    container_name: backend
+    build: ./MoodJournal/backend
+    working_dir: /opt/backend
+    command: npm start
+    ports:
+      - "3001:3001"
+    volumes:
+      - /Users/mauricio/Documents/Projects/DockerTest/MoodJournal/backend/:/opt/backend
+
+  moodjournal:
+    container_name: frontend
+    build: ./MoodJournal/frontend
+    working_dir: /opt/frontend
+    command: npm start
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount the repo dir
+      - /Users/mauricio/Documents/Projects/DockerTest/MoodJournal/frontend/:/opt/frontend
+      # Mount the backend client to the frontend build dir
+      - /Users/mauricio/Documents/Projects/DockerTest/MoodJournal/backend/client:/opt/frontend/build
+      # Needed to persist the node_modules after the npm intall. Fixes command not found error
+      # Source: https://stackoverflow.com/questions/30043872/docker-compose-node-modules-not-present-in-a-volume-after-npm-install-succeeds
+      - /opt/frontend/node_modules
+      

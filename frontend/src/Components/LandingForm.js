@@ -11,7 +11,7 @@ const LandingForm = (props) => {
             <input type='email' className='form-control'
               value={props.email} onChange={props.handleEmailChange}
               aria-describedby='emailHelp' placeholder='Enter email' />
-            <small id='emailHelp' className='form-text text-muted'>We'll never share your email with anyone else.</small>
+            <small id='emailHelp' className='form-text text-muted'>We may share your email with anyone else.</small>
           </div>
           <div className='form-group'>
             <label>Password</label>

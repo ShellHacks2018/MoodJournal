@@ -7,7 +7,7 @@ const LandingForm = (props) => {
       <div className='row align-self-center d-flex base justify-content-center'>
         <form onSubmit={props.handleSubmit}>
           <div className='form-group'>
-            <label>Email address</label>
+            <label>Email Address</label>
             <input type='email' className='form-control'
               value={props.email} onChange={props.handleEmailChange}
               aria-describedby='emailHelp' placeholder='Enter email' />

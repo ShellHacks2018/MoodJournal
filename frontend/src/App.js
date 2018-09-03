@@ -4,7 +4,7 @@ import CalendarPageComp from './Pages/CalendarPageComp.js'
 import SelectionPageComp from './Pages/SelectionPageComp.js'
 import LandingPageContainer from './Pages/LandingPageContainer.js'
 import PageNotFoundComp from './Pages/PageNotFoundComp.js'
-import MapPageComp from './Pages/MapPageComp.js'
+import MapPageContainer from './Pages/MapPageContainer.js'
 
 import { connect } from 'react-redux'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
@@ -33,7 +33,7 @@ class App extends Component {
             <Route path='/welcome' render={props => <LandingPageContainer updateAuth={this.props.updateAuth} />} />
             <Route path='/calendar' component={CalendarPageComp} />
             <Route path='/selection' component={SelectionPageComp} />
-            <Route path='/map' component={MapPageComp} />
+            <Route path='/map' component={MapPageContainer} />
             <Route component={PageNotFoundComp} />
           </Switch>
         </div>

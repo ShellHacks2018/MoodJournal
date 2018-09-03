@@ -1,6 +1,7 @@
-import MapComponent from '../Components/MapComponent'
+import React from 'react'
+import MapComponent from '../Components/MapComponent.js'
 
-const MapComponent = (props) =>{
+const MapPageView = (props) =>{
 	return(
 		<div>
 			<h1 className="my-5">Google Map</h1>
@@ -8,3 +9,5 @@ const MapComponent = (props) =>{
 		</div>
     )
 }
+
+export default MapPageView;

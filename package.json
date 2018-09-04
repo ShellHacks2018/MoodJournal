@@ -1,27 +1,35 @@
 {
   "name": "moodjournal",
-  "version": "0.1.0",
-  "description": "An application where users can log in their mood on a daily basis.",
-  "private": true,
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=4"
+  },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "lint": "eslint .",
+    "start": "node .",
+    "posttest": "npm run lint && nsp check"
+  },
+  "dependencies": {
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "helmet": "^3.10.0",
+    "loopback": "^3.19.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^6.0.0",
+    "loopback-connector-mongodb": "^3.5.0",
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-loopback": "^8.0.0",
+    "nsp": "^2.1.0"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ShellHacks2018/MoodJournal.git"
+    "type": "",
+    "url": ""
   },
-  "author": "[Mauricio Santos-Hoyos] [Cristian Cepeda] [Steve Patterson]",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ShellHacks2018/MoodJournal/issues"
-  },
-  "homepage": "https://github.com/ShellHacks2018/MoodJournal#readme",
-  "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-scripts": "1.1.4"
-  }
+  "license": "UNLICENSED",
+  "description": "moodjournal"
 }
